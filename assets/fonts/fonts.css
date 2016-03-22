@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'moon_bold';
+    src: url(./moon_bold.eot);
+    src: url(./moon_bold.eot?#iefix) format('embedded-opentype'),
+    url(./moon_bold.woff) format('woff'),
+    url(./moon_bold.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'moon_light';
+    src: url(./moon_light.eot);
+    src: url(./moon_light.eot?#iefix) format('embedded-opentype'),
+    url(./moon_light.woff) format('woff'),
+    url(./moon_light.woff2) format('woff2');
+}
+
+@font-face {
+    font-family: 'journal';
+    src: url(./journal.eot);
+    src: url(./journal.eot?#iefix) format('embedded-opentype'),
+    url(./journal.woff) format('woff'),
+    url(./journal.woff2) format('woff2');
+}

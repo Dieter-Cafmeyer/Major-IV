@@ -1,0 +1,82 @@
+@media only screen and (max-width: 1325px){
+	html{
+		font-size: 1vw;
+	}
+
+}
+
+@media only screen and (max-width: 1095px){
+	html{
+		font-size: 65%;
+	}
+	.center{
+		width: 90vw;
+	}
+}
+
+@media only screen and (max-width: 960px){
+
+	.banner-image{
+		width: 40vw;
+		height: 100%;
+	}
+	nav{
+		margin-bottom: 4rem;
+	}
+	main{
+		margin-top: 0;
+	}
+	.banner::before {
+		top: 0;
+	}
+}
+
+@media only screen and (max-width: 680px){
+
+	.products{
+		flex-direction: column;
+	}
+
+	.product{
+		margin-bottom: 3rem;
+	}
+
+	.banner-image{
+		display: none;
+	}
+
+	.footer-content{
+		flex-direction: column;
+	}
+	
+	.footer-title{
+		margin-bottom: 3rem;
+		font-size: 6vw;
+	}
+	.address{
+		order: 2;
+		margin-top: 3rem;
+	}
+
+	.banner::before {
+		display: block;
+	}
+
+	.banner-quote{
+		text-align: center;
+	}
+
+	blockquote{
+		padding-bottom: 3rem;
+		padding-top: 2rem;
+	}
+
+
+}
+
+@media only screen and (max-width: 515px){
+	.header-title{
+		font-size: 12vw;
+	}
+
+}
