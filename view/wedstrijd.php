@@ -95,7 +95,7 @@
   </div>
 
 <div class="container2">
-    <section class="part3">
+    <section class="part3 resize">
       <hr class="border-part3" />
       <h3>Wij doen mee!</h3>
       <p>Hebben jij en je klas er al zin in? Vul dan alvast onderstaande formulier in en ontvang zo snel mogelijk het boek in je inbox.</p>

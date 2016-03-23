@@ -809,6 +809,9 @@ article div h2 {
   .douglas-items li p {
     font-size: 1.9vw;
   }
+  .resize {
+    padding-bottom: 200px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
