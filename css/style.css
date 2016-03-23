@@ -54,6 +54,7 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit;
+  outline: none;
 }
 
 main {
@@ -810,6 +811,9 @@ article div h2 {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+  }
+  .resize {
+    padding-bottom: 200px;
   }
   article {
     margin: 0 auto;

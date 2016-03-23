@@ -325,6 +325,14 @@
     flex-wrap: wrap;
   }
 
+  .resize {
+    padding-bottom: 200px;
+  }
+
+  // .container2 {
+  //   padding-bottom: 200px;
+  // }
+
   article {
     @include center;
     width: 70%;
