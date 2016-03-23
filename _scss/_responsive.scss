@@ -1,82 +1,383 @@
-@media only screen and (max-width: 1325px){
-	html{
-		font-size: 1vw;
-	}
-
-}
-
 @media only screen and (max-width: 1095px){
-	html{
-		font-size: 65%;
-	}
-	.center{
-		width: 90vw;
-	}
+  html{
+    font-size: 65%;
+  }
+
+  .nav-links {
+    font-size: 1vw;
+  }
+
+  .part1 {
+    width: 90%;
+  }
 }
 
 @media only screen and (max-width: 960px){
+	html{
+		font-size: 1vw;
+	}
+  .part3{
+    h3 {
+      width: 90%;
+      font-size: 7.5vw;
+    }
+    p {
+      width: 90%;
+      font-size: 2vw;
+    }
 
-	.banner-image{
-		width: 40vw;
-		height: 100%;
-	}
-	nav{
-		margin-bottom: 4rem;
-	}
-	main{
-		margin-top: 0;
-	}
-	.banner::before {
-		top: 0;
-	}
+    h2 {
+      font-size: 2vw;
+      width: 100%;
+    }
+  }
+
+  .part1 {
+    width: 100%;
+    @include center;
+
+    h1, p {
+      @include center;
+      text-align: center;
+      width: 80%;
+      font-size: 1.6vw;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 3.3vw;
+    }
+
+    flex-wrap: wrap;
+     img {
+      @include center;
+     }
+  }
+
+  .content-part1 {
+    @include center;
+  }
+
+  .part2 {
+    div {
+      margin-top: 0;
+      padding: 0;
+    }
+  }
+
+  .headerimage {
+    width:100%;
+    img {
+      display: none;
+    }
+  }
+
+  header {
+    width: 100%;
+  }
+
+  .title-top, .title-bottom{
+    width: 100%;
+    font-size: 4.1vw;
+  }
+
+  .nav-links {
+    font-size: 1.5vw;
+  }
+
+  .container, .container2 {
+    width: 100%;
+  }
+
+  .home-step {
+    flex-wrap: wrap;
+
+    li {
+      min-width: 300px;
+      font-size: 1.8vw;
+    }
+  }
+
+  .awards {
+    width: 100%;
+    flex-wrap: wrap;
+
+    li {
+      margin-bottom: 30px;
+    }
+  }
+
+  .douglas-items {
+    width: 90%;
+    flex-wrap: wrap;
+    li {
+      margin-bottom: 20px;
+    }
+  }
+
+  .wedstrijd-uitleg {
+    width: 100%;
+    flex-wrap: wrap;
+    li {
+      width: 45%;
+    }
+    img {
+      margin-top:20px;
+    }
+  }
+
+  .register, .login {
+    p {
+      width: 100%;
+      margin-right: 0;
+
+      a {
+        width: 100%;
+      }
+    }
+  }
+
+  .rounded-orange {
+    @include center;
+    margin-top: 40px;
+  }
 }
 
-@media only screen and (max-width: 680px){
+@media only screen and (max-width: 900px){
 
-	.products{
-		flex-direction: column;
-	}
+  .home-step {
+    flex-wrap: wrap;
+    width: 100%;
 
-	.product{
-		margin-bottom: 3rem;
-	}
+    li {
+      @include center;
+      width: 50%;
+      margin-bottom: 100px;
+      font-size: 1.8vw;
 
-	.banner-image{
-		display: none;
-	}
+      h1 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
 
-	.footer-content{
-		flex-direction: column;
-	}
-	
-	.footer-title{
-		margin-bottom: 3rem;
-		font-size: 6vw;
-	}
-	.address{
-		order: 2;
-		margin-top: 3rem;
-	}
+  .part3 {
+    h2 {
+      font-size: 3vw;
+    }
+  }
+}
 
-	.banner::before {
-		display: block;
-	}
 
-	.banner-quote{
-		text-align: center;
-	}
+@media only screen and (max-width: 800px){
 
-	blockquote{
-		padding-bottom: 3rem;
-		padding-top: 2rem;
-	}
+  .title-top, .title-bottom{
+    font-size: 5vw;
+  }
 
+  .wedstrijd-uitleg {
+    li {
+      @include center;
+      min-height: 450px;
+      h2 {
+        font-size: 2vw;
+      }
+    }
+  }
 
 }
 
-@media only screen and (max-width: 515px){
-	.header-title{
-		font-size: 12vw;
-	}
+@media only screen and (max-width: 700px){
+  .nav-links {
+    font-size: 1.7vw;
+  }
 
+  .wedstrijd-uitleg {
+    li {
+      @include center;
+      h2 {
+        font-size: 3vw;
+      }
+    }
+  }
+
+  .register, .login {
+    flex-wrap: wrap;
+    width: 90%;
+
+    .input-fields {
+      width: 90%;
+      @include center;
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+  }
+
+  .wedstrijd-uitleg {
+    width: 100%;
+    h2 {
+      width: 90%;
+    }
+
+    img {
+      @include center;
+    }
+
+    li {
+      @include center;
+      width: 90%;
+    }
+  }
+
+  .title-top, .title-bottom{
+    font-size: 5.4vw;
+  }
+
+  .home-step {
+    width: 100%;
+  }
+  .part1 {
+    h1 {
+      font-size: 4vw;
+    }
+    p {
+      font-size: 2vw;
+    }
+  }
+
+  .part3 {
+
+    h2 {
+      line-height: 30px;
+      margin-bottom: 20px;
+      font-size: 5vw;
+    }
+  }
+
+  .part3-content {
+    width: 100%;
+    flex-wrap: wrap;
+
+    div {
+      width: 90%;
+      @include center;
+      margin-bottom: 30px;
+    }
+
+    img {
+      @include center;
+    }
+
+    h1, p {
+      width: 100%;
+      text-align: center;
+      @include center;
+    }
+
+    h1 {
+      font-size: 4vw;
+    }
+  }
+
+  .awards {
+    li {
+      width: 50%;
+    }
+  }
+
+  .input-fields {
+      font-size: 2vw;
+  }
+
+  .polaroids {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  article {
+    @include center;
+    width: 70%;
+    margin-bottom: 40px;
+  }
+
+}
+
+@media only screen and (max-width: 600px){
+  .nav-links {
+    font-size: 2.7vw;
+  }
+
+  .wedstrijd-uitleg {
+    p {
+      margin-bottom: 20px;
+      margin-top: 20px;
+    }
+
+    hr {
+      margin-bottom: 20px;
+    }
+  }
+
+  .douglas-items {
+    li {
+      width: 70%;
+    }
+  }
+
+
+  .headerimg {
+    width: 90%;
+  }
+
+  .wedstrijd-uitleg {
+    li {
+      @include center;
+      h2 {
+        font-size: 4vw;
+      }
+    }
+  }
+
+  .title-top, .title-bottom{
+    width: 100%;
+    font-size: 7vw;
+  }
+
+  .home-step {
+    flex-wrap: wrap;
+    @include center;
+
+    li {
+      min-width: 90%;
+      font-size: 3vw;
+    }
+  }
+
+  .part1 {
+    margin-bottom: 40px;
+    h1 {
+      font-size: 5vw;
+    }
+    p {
+      font-size: 3vw;
+    }
+  }
+
+  .part3-content {
+    h1 {
+      font-size: 6vw;
+    }
+  }
+
+  .part3{
+    p {
+      font-size: 3vw;
+    }
+  }
+
+  article {
+    width: 90%;
+  }
 }

@@ -35,7 +35,7 @@
         </ul>
       </nav>
 
-      <img src="assets/img/wedstrijd.png" width="350">
+      <img src="assets/img/wedstrijd.png" class="headerimg" width="350">
 
     </header>
   </div>
@@ -122,7 +122,7 @@
 
 <div class="container">
   <header class="deelnames">
-    <img src="assets/img/wij-nemen-ook-deel.png" >
+    <img src="assets/img/wij-nemen-ook-deel.png" class="headerimg" >
   </header>
 
   <div class="polaroids">
