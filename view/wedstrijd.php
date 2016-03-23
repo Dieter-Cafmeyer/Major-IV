@@ -100,7 +100,7 @@
       <h3>Wij doen mee!</h3>
       <p>Hebben jij en je klas er al zin in? Vul dan alvast onderstaande formulier in en ontvang zo snel mogelijk het boek in je inbox.</p>
 
-      <form type="post" class="register">
+      <form method="post" class="register">
         <input type="text" placeholder="Voornaam" class="input-fields">
         <input type="text" placeholder="Achernaam" class="input-fields">
         <input type="text" placeholder="School" class="input-fields">
@@ -111,7 +111,7 @@
         <p><a class="change_forms-register">Heb je al een account? Log hier in.</a></p>
       </form>
 
-      <form type="post" class="login hidden">
+      <form method="post" class="login hidden">
         <input type="email" placeholder="Email" class="input-fields">
         <input type="password" placeholder="Wachtwoord" class="input-fields">
         <input type="submit" value="Inloggen" class="rounded-orange"/>
