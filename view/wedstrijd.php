@@ -1,3 +1,9 @@
+<?php
+  echo "<pre>";
+  var_dump($users);
+  echo "</pre>";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -126,7 +132,7 @@
   </header>
 
   <div class="polaroids">
-    <article>
+    <!-- <article>
       <div>
         <img src="assets/img/image.png"/>
         <h2>Klas <br/> Schoolnaam</h2>
@@ -145,7 +151,27 @@
         <img src="assets/img/image.png"/>
         <h2>Klas <br/> Schoolnaam</h2>
       </div>
-    </article>
+    </article> -->
+
+    <?php
+
+    $users = json_decode($users, true);
+
+    if (is_array($users)) {
+      foreach ($users as $user) {
+
+        ?>
+          <article>
+            <div>
+              <img src="assets/klasfotos/<?php echo $user['image'] ?>" alt="Polaroid">
+              <h2><?php echo $user['klas']; ?> <br /> <?php echo $user['school']; ?></h2>
+            </div>
+          </article>
+        <?php
+      }
+    }
+
+  ?>
   </div>
 </div>
 <script src="js/script.js"></script>

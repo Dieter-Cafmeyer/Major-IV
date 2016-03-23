@@ -10,14 +10,14 @@ const init = () => {
 
 const changeToLogin = (e) =>{
   e.preventDefault();
-  registerForm.classList.add("hidden");
-  loginForm.classList.remove("hidden");
+  registerForm.classList.add('hidden');
+  loginForm.classList.remove('hidden');
 };
 
 const changeToRegister = (e) =>{
   e.preventDefault();
-  registerForm.classList.remove("hidden");
-  loginForm.classList.add("hidden");
+  registerForm.classList.remove('hidden');
+  loginForm.classList.add('hidden');
 };
 
 init();

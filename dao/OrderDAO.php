@@ -1,26 +1,27 @@
 <?php
 require_once WWW_ROOT . 'dao' . DS . 'DAO.php';
-class OnelinerDAO extends DAO {
+class OrderDAO extends DAO {
 
 	public function selectAll() {
-		$sql = "SELECT * FROM `oneliners`";
+		$sql = "SELECT * FROM `book_orders`";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	public function selectById($id) {
-		$sql = "SELECT * FROM `oneliners` WHERE `id` = :id";
+		$sql = "SELECT * FROM `book_orders` WHERE `id` = :id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':id', $id);
 		$stmt->execute();
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
-	public function insert($data) {
+
+	/*public function insert($data) {
 		$errors = $this->getValidationErrors($data);
 		if(empty($errors)) {
-			$sql = "INSERT INTO `oneliners` (`created`, `author`, `text`) VALUES (:created, :author, :text)";
+			$sql = "INSERT INTO `book_orders` (`created`, `author`, `text`) VALUES (:created, :author, :text)";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->bindValue(':created', $data['created']);
 			$stmt->bindValue(':author', $data['author']);
@@ -31,30 +32,7 @@ class OnelinerDAO extends DAO {
 			}
 		}
 		return false;
-	}
-
-	public function update($id, $data) {
-		$errors = $this->getValidationErrors($data);
-		if(empty($errors)) {
-			$sql = "UPDATE `oneliners` SET `created` = :created, `author` = :author, `text` = :text WHERE `id` = :id";
-			$stmt = $this->pdo->prepare($sql);
-			$stmt->bindValue(':created', $data['created']);
-			$stmt->bindValue(':author', $data['author']);
-			$stmt->bindValue(':text', $data['text']);
-			$stmt->bindValue(':id', $id);
-			if($stmt->execute()) {
-				return $this->selectById($id);
-			}
-		}
-		return false;
-	}
-
-	public function delete($id) {
-		$sql = "DELETE FROM `oneliners` WHERE `id` = :id";
-		$stmt = $this->pdo->prepare($sql);
-		$stmt->bindValue(':id', $id);
-		return $stmt->execute();
-	}
+	}*/
 
 	public function getValidationErrors($data) {
 		$errors = array();
