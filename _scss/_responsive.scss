@@ -13,9 +13,9 @@
 }
 
 @media only screen and (max-width: 960px){
-	html{
-		font-size: 1vw;
-	}
+  html{
+    font-size: 1vw;
+  }
   .part3{
     h3 {
       width: 90%;
@@ -167,6 +167,18 @@
       font-size: 3vw;
     }
   }
+
+  .douglas-items {
+    li {
+      h3 {
+        font-size: 3.4vw;
+      }
+
+      p {
+        font-size: 1.3vw;
+      }
+    }
+  }
 }
 
 
@@ -302,6 +314,18 @@
     margin-bottom: 40px;
   }
 
+  .douglas-items {
+    li {
+      h3 {
+        font-size: 3.4vw;
+      }
+
+      p {
+        font-size: 1.9vw;
+      }
+    }
+  }
+
 }
 
 @media only screen and (max-width: 600px){
@@ -379,5 +403,21 @@
 
   article {
     width: 90%;
+  }
+
+  .douglas-items {
+    li {
+      h3 {
+        font-size: 5.4vw;
+      }
+
+      h4 {
+        font-size: 9vw;
+      }
+
+      p {
+        font-size: 2.5vw;
+      }
+    }
   }
 }
