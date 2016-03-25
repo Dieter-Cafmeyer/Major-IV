@@ -1,9 +1,3 @@
-<?php
-  echo "<pre>";
-  var_dump($users);
-  echo "</pre>";
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,6 +34,16 @@
           <li class="nav-links active"><a href="/wedstrijd">Wedstrijd</a></li>
         </ul>
       </nav>
+
+      <?php 
+        if ($registered === 1) {
+          ?>
+            <div class="alert">
+              <strong>Succes!</strong> Je bent succesvol geregistreerd. Het boek wordt zo snel mogelijk opggestuurd.
+            </div>
+          <?php
+        }
+      ?>
 
       <img src="assets/img/wedstrijd.png" class="headerimg" width="350">
 
@@ -106,20 +110,20 @@
       <h3>Wij doen mee!</h3>
       <p>Hebben jij en je klas er al zin in? Vul dan alvast onderstaande formulier in en ontvang zo snel mogelijk het boek in je inbox.</p>
 
-      <form method="post" class="register">
-        <input type="text" placeholder="Voornaam" class="input-fields">
-        <input type="text" placeholder="Achernaam" class="input-fields">
-        <input type="text" placeholder="School" class="input-fields">
-        <input type="text" placeholder="Klas" class="input-fields">
-        <input type="email" placeholder="Email" class="input-fields">
-        <input type="password" placeholder="Wachtwoord" class="input-fields">
+      <form method="post" class="register" action="/register">
+        <input type="text" placeholder="Voornaam" class="input-fields" name="voornaam">
+        <input type="text" placeholder="Achernaam" class="input-fields" name="achternaam">
+        <input type="text" placeholder="School" class="input-fields" name="school">
+        <input type="text" placeholder="Klas" class="input-fields" name="klas">
+        <input type="email" placeholder="Email" class="input-fields" name="email">
+        <input type="password" placeholder="Wachtwoord" class="input-fields" name="wachtwoord">
         <input type="submit" value="Registreer" class="rounded-orange"/>
         <p><a class="change_forms-register">Heb je al een account? Log hier in.</a></p>
       </form>
 
-      <form method="post" class="login hidden">
-        <input type="email" placeholder="Email" class="input-fields">
-        <input type="password" placeholder="Wachtwoord" class="input-fields">
+      <form method="post" class="login hidden" action="/login">
+        <input type="email" placeholder="Email" class="input-fields" name="email">
+        <input type="password" placeholder="Wachtwoord" class="input-fields" name="wachtwoord">
         <input type="submit" value="Inloggen" class="rounded-orange"/>
         <p><a class="change_forms-login">Heb je nog geen account?</a></p>
       </form><br/>

@@ -1,4 +1,5 @@
 <?php
+session_start();
 ini_set('display_errors', true);
 error_reporting(E_ALL);
 
@@ -56,25 +57,40 @@ $app->get('/wedstrijd', function ($request, $response, $args) {
   $users = json_encode($reviewDAO->selectAllReviewsAndUsers());
   $view = new \Slim\Views\PhpRenderer('view/');
   $basePath = $request->getUri()->getBasePath();
-  return $view->render($response, 'wedstrijd.php', ['basePath' => $basePath, 'users' => $users]);
+  return $view->render($response, 'wedstrijd.php', ['basePath' => $basePath, 'users' => $users, 'registered' => 0]);
 });
 
-$app->post('/api/users', function ($request, $response, $args) {
+$app->post('/register', function ($request, $response, $args) use ($app) {
   $usersDAO = new UsersDAO();
+  $orderDAO = new OrderDAO();
   $user = $request->getParsedBody();
-  echo "<pre>";
-  var_dump($user);
-  echo "</pre>";
-  // $oneliner['created'] = date('Y-m-d H:i:s');
-  // $insertedOneliner = $onelinerDAO->insert($oneliner);
-  // $response = $response->write(json_encode($insertedOneliner))
-  //   ->withHeader('Content-Type','application/json');
-  // if(empty($insertedOneliner)) {
-  //   $response = $response->withStatus(404);
-  // } else {
-  //   $response = $response->withStatus(201);
-  // }
-  // return $response;
+
+  $insertedUser = $usersDAO->insert($user);
+  $insertedOrder = $orderDAO->insert($insertedUser);
+
+  $response->redirect('/wedstrijd');
+
+  // $reviewDAO = new ReviewDAO();
+  // $users = json_encode($reviewDAO->selectAllReviewsAndUsers());
+  // $view = new \Slim\Views\PhpRenderer('view/');
+  // $basePath = $request->getUri()->getBasePath();
+  // return $view->render($response, 'wedstrijd.php', ['basePath' => $basePath, 'users' => $users, 'user' => $user, 'registered' => 1]);
+});
+
+$app->post('/login', function ($request, $response, $args) {
+  $usersDAO = new UsersDAO();
+  $loginData = $request->getParsedBody();
+
+  $login = $usersDAO->loginCheck($loginData);
+
+  if ($login) {
+    echo "Login gelukt";
+    print_r($login);
+    header("Location: localhost/wedstrijd");
+
+  } else {
+    echo "login mislukt";
+  }
 });
 
 $app->run();

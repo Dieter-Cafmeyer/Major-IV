@@ -17,33 +17,28 @@ class UsersDAO extends DAO {
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
-	/*public function insert($data) {
-		$errors = $this->getValidationErrors($data);
-		if(empty($errors)) {
-			$sql = "INSERT INTO `book_orders` (`created`, `author`, `text`) VALUES (:created, :author, :text)";
-			$stmt = $this->pdo->prepare($sql);
-			$stmt->bindValue(':created', $data['created']);
-			$stmt->bindValue(':author', $data['author']);
-			$stmt->bindValue(':text', $data['text']);
-			if($stmt->execute()) {
-				$insertedId = $this->pdo->lastInsertId();
-				return $this->selectById($insertedId);
-			}
-		}
-		return false;
-	}*/
+	public function loginCheck($data) {
+		$sql = "SELECT * FROM `book_users` WHERE `email` = :email AND `password` = :password";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':email', $data['email']);
+		$stmt->bindValue(':password', $data['wachtwoord']);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+	}
 
-	public function getValidationErrors($data) {
-		$errors = array();
-		if(empty($data['created'])) {
-			$errors['created'] = 'Please enter a created date';
+	public function insert($data) {
+		$sql = "INSERT INTO `book_users` (`firstname`, `lastname`, `email`, `password`, `school`, `klas`, `is_admin`) VALUES (:firstname, :lastname, :email, :password, :school, :klas, :is_admin)";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':firstname', $data['voornaam']);
+		$stmt->bindValue(':lastname', $data['achternaam']);
+		$stmt->bindValue(':email', $data['email']);
+		$stmt->bindValue(':password', $data['wachtwoord']);
+		$stmt->bindValue(':school', $data['school']);
+		$stmt->bindValue(':klas', $data['klas']);
+		$stmt->bindValue(':is_admin', 0);
+		if($stmt->execute()) {
+			$insertedId = $this->pdo->lastInsertId();
+			return $this->selectById($insertedId);
 		}
-		if(empty($data['author'])) {
-			$errors['author'] = 'Please enter an author';
-		}
-		if(empty($data['text'])) {
-			$errors['text'] = 'Please enter a text';
-		}
-		return $errors;
 	}
 }

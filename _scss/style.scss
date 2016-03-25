@@ -111,6 +111,20 @@ nav {
   }
 }
 
+.alert {
+  background-color: #2ecc71;
+  border: 1px solid #27ae60;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 50px;
+  font-size: 12px;
+
+  strong {
+    font-weight: bold;
+  }
+}
+
 .title-top {
   font-family: 'moon_light';
   font-size: 3em;
@@ -465,6 +479,7 @@ article {
   display: flex;
   justify-content: center;
   box-shadow: -1px 0px 55px -17px rgba(0,0,0,0.75);
+  background-color: #fff;
 
   div {
     width: 90%;
