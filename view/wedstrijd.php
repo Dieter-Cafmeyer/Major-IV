@@ -140,7 +140,9 @@
         <?php
       } else { ?>
         <form method="post" class="register" action="/upload" enctype="multipart/form-data">
+          <label class="input-fields" for="pdf">Upload hier uw review</label>
           <input type="file" class="input-fields" name="pdf" />
+          <label class="input-fields" for="foto">Upload hier uw klasfoto</label>
           <input type="file" class="input-fields" name="foto" />
           <input type="submit" value="Uploaden" class="rounded-orange"/>
         </form>
@@ -171,7 +173,7 @@
         ?>
           <article>
             <div>
-              <img src="assets/klasfotos/<?php echo $user['image'] ?>" alt="Polaroid">
+              <img src="assets/uploads/img/<?php echo $user['image'] ?>" alt="Polaroid">
               <h2><?php echo $user['klas']; ?> <br /> <?php echo $user['school']; ?></h2>
             </div>
           </article>

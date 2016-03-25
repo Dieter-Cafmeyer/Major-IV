@@ -522,11 +522,17 @@ article {
 
 .polaroids {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .hidden {
   display: none;
+}
+
+label {
+  border: none !important;
+  color: black !important;
 }
 
 @import "responsive";

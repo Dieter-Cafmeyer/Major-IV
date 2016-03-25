@@ -591,11 +591,17 @@ article div h2 {
 
 .polaroids {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .hidden {
   display: none;
+}
+
+label {
+  border: none !important;
+  color: black !important;
 }
 
 @media only screen and (max-width: 1095px) {

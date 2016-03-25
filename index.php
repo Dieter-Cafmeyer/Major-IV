@@ -79,22 +79,24 @@ $app->post('/upload', function ($request, $response, $args) use ($app) {
   $reviewDAO = new ReviewDAO();
   $data = $request->getParsedBody();
 
-  if($_FILES['pdf']['name']) {
+  if ($_FILES['pdf']['name'] && $_FILES['foto']['name']) {
 
     if(!$_FILES['pdf']['error']){
+      $pdfPath = 'assets/uploads/pdf/';
       print_r($_FILES);
       $pdf = strtolower($_FILES['pdf']['name']);
-      move_uploaded_file($_FILES['pdf']['tmp_name'], 'assets/uploads/pdf/'.$pdf);
+      move_uploaded_file($_FILES['pdf']['tmp_name'], $pdfPath.$pdf);
     }
-  }
-
-  if($_FILES['foto']['name']) {
 
     if(!$_FILES['foto']['error']){
+      $imgPath = 'assets/uploads/img/';
       print_r($_FILES);
       $foto = strtolower($_FILES['foto']['name']);
-      move_uploaded_file($_FILES['foto']['tmp_name'], 'assets/uploads/img/'.$foto);
+      move_uploaded_file($_FILES['foto']['tmp_name'], $imgPath.$foto);
     }
+
+    $reviewDAO->insert($_SESSION['user']['id'], $pdf, $foto);
+
   }
 
   // $reviewDAO = new ReviewDAO();
