@@ -68,13 +68,11 @@ $app->post('/register', function ($request, $response, $args) use ($app) {
   $insertedUser = $usersDAO->insert($user);
   $insertedOrder = $orderDAO->insert($insertedUser);
 
-  $response->redirect('/wedstrijd');
-
-  // $reviewDAO = new ReviewDAO();
-  // $users = json_encode($reviewDAO->selectAllReviewsAndUsers());
-  // $view = new \Slim\Views\PhpRenderer('view/');
-  // $basePath = $request->getUri()->getBasePath();
-  // return $view->render($response, 'wedstrijd.php', ['basePath' => $basePath, 'users' => $users, 'user' => $user, 'registered' => 1]);
+  $reviewDAO = new ReviewDAO();
+  $users = json_encode($reviewDAO->selectAllReviewsAndUsers());
+  $view = new \Slim\Views\PhpRenderer('view/');
+  $basePath = $request->getUri()->getBasePath();
+  return $view->render($response, 'wedstrijd.php', ['basePath' => $basePath, 'users' => $users, 'user' => $user, 'registered' => 1]);
 });
 
 $app->post('/login', function ($request, $response, $args) {
@@ -84,12 +82,11 @@ $app->post('/login', function ($request, $response, $args) {
   $login = $usersDAO->loginCheck($loginData);
 
   if ($login) {
-    echo "Login gelukt";
-    print_r($login);
-    header("Location: localhost/wedstrijd");
-
-  } else {
-    echo "login mislukt";
+    $reviewDAO = new ReviewDAO();
+    $users = json_encode($reviewDAO->selectAllReviewsAndUsers());
+    $view = new \Slim\Views\PhpRenderer('view/');
+    $basePath = $request->getUri()->getBasePath();
+    return $view->render($response, 'wedstrijd.php', ['basePath' => $basePath, 'users' => $users, 'user' => $user, 'registered' => 1]);
   }
 });
 
