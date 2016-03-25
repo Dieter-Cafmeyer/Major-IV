@@ -35,7 +35,7 @@
         </ul>
       </nav>
 
-      <?php 
+      <?php
         if ($registered === 1) {
           ?>
             <div class="alert">
@@ -139,12 +139,17 @@
           </form><br/>
         <?php
       } else { ?>
-        <form method="post" class="register" action="/upload">
+        <form method="post" class="register" action="/upload" enctype="multipart/form-data">
           <input type="file" class="input-fields" name="pdf" />
           <input type="file" class="input-fields" name="foto" />
           <input type="submit" value="Uploaden" class="rounded-orange"/>
         </form>
-      <?php } ?>
+      <?php }
+      if(!empty($_SESSION['test'])){
+        print_r($_SESSION['test']);
+      }else {
+        print_r($_SESSION['test']);
+      } ?>
 
     </section>
 </div>

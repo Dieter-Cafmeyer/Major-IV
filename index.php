@@ -75,6 +75,36 @@ $app->post('/register', function ($request, $response, $args) use ($app) {
   return $view->render($response, 'wedstrijd.php', ['basePath' => $basePath, 'users' => $users, 'user' => $user, 'registered' => 1, 'wronglogin' => 0]);
 });
 
+$app->post('/upload', function ($request, $response, $args) use ($app) {
+  $reviewDAO = new ReviewDAO();
+  $data = $request->getParsedBody();
+
+  if($_FILES['pdf']['name']) {
+
+    if(!$_FILES['pdf']['error']){
+      print_r($_FILES);
+      $pdf = strtolower($_FILES['pdf']['name']);
+      move_uploaded_file($_FILES['pdf']['tmp_name'], 'assets/uploads/pdf/'.$pdf);
+    }
+  }
+
+  if($_FILES['foto']['name']) {
+
+    if(!$_FILES['foto']['error']){
+      print_r($_FILES);
+      $foto = strtolower($_FILES['foto']['name']);
+      move_uploaded_file($_FILES['foto']['tmp_name'], 'assets/uploads/img/'.$foto);
+    }
+  }
+
+  // $reviewDAO = new ReviewDAO();
+  // $users = json_encode($reviewDAO->selectAllReviewsAndUsers());
+  // $view = new \Slim\Views\PhpRenderer('view/');
+  // $basePath = $request->getUri()->getBasePath();
+  // return $view->render($response, 'wedstrijd.php', ['basePath' => $basePath, 'users' => $users, 'user' => $user, 'registered' => 0, 'wronglogin' => 0]);
+});
+
+
 $app->post('/login', function ($request, $response, $args) {
   $usersDAO = new UsersDAO();
   $loginData = $request->getParsedBody();
