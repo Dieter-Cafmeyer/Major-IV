@@ -57,7 +57,7 @@ $app->get('/wedstrijd', function ($request, $response, $args) {
   $users = json_encode($reviewDAO->selectAllReviewsAndUsers());
   $view = new \Slim\Views\PhpRenderer('view/');
   $basePath = $request->getUri()->getBasePath();
-  return $view->render($response, 'wedstrijd.php', ['basePath' => $basePath, 'users' => $users, 'registered' => 0]);
+  return $view->render($response, 'wedstrijd.php', ['basePath' => $basePath, 'users' => $users, 'registered' => 0, 'wronglogin' => 0]);
 });
 
 $app->post('/register', function ($request, $response, $args) use ($app) {
@@ -72,7 +72,7 @@ $app->post('/register', function ($request, $response, $args) use ($app) {
   $users = json_encode($reviewDAO->selectAllReviewsAndUsers());
   $view = new \Slim\Views\PhpRenderer('view/');
   $basePath = $request->getUri()->getBasePath();
-  return $view->render($response, 'wedstrijd.php', ['basePath' => $basePath, 'users' => $users, 'user' => $user, 'registered' => 1]);
+  return $view->render($response, 'wedstrijd.php', ['basePath' => $basePath, 'users' => $users, 'user' => $user, 'registered' => 1, 'wronglogin' => 0]);
 });
 
 $app->post('/login', function ($request, $response, $args) {
@@ -86,7 +86,14 @@ $app->post('/login', function ($request, $response, $args) {
     $users = json_encode($reviewDAO->selectAllReviewsAndUsers());
     $view = new \Slim\Views\PhpRenderer('view/');
     $basePath = $request->getUri()->getBasePath();
-    return $view->render($response, 'wedstrijd.php', ['basePath' => $basePath, 'users' => $users, 'user' => $user, 'registered' => 1]);
+    $_SESSION['user'] = $login;
+    return $view->render($response, 'wedstrijd.php', ['basePath' => $basePath, 'users' => $users, 'user' => $user, 'registered' => 0, 'wronglogin' => 0]);
+  } else {
+    $reviewDAO = new ReviewDAO();
+    $users = json_encode($reviewDAO->selectAllReviewsAndUsers());
+    $view = new \Slim\Views\PhpRenderer('view/');
+    $basePath = $request->getUri()->getBasePath();
+    return $view->render($response, 'wedstrijd.php', ['basePath' => $basePath, 'users' => $users, 'user' => $user, 'registered' => 0, 'wronglogin' => 1]);
   }
 });
 

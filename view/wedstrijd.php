@@ -45,6 +45,14 @@
         }
       ?>
 
+      <?php if ($wronglogin === 1) {
+        ?>
+          <div class="alert-fail">
+            <strong>Uh oh!</strong> De login gegevens waren niet juist.
+          </div>
+        <?php
+      } ?>
+
       <img src="assets/img/wedstrijd.png" class="headerimg" width="350">
 
     </header>
@@ -110,23 +118,34 @@
       <h3>Wij doen mee!</h3>
       <p>Hebben jij en je klas er al zin in? Vul dan alvast onderstaande formulier in en ontvang zo snel mogelijk het boek in je inbox.</p>
 
-      <form method="post" class="register" action="/register">
-        <input type="text" placeholder="Voornaam" class="input-fields" name="voornaam">
-        <input type="text" placeholder="Achernaam" class="input-fields" name="achternaam">
-        <input type="text" placeholder="School" class="input-fields" name="school">
-        <input type="text" placeholder="Klas" class="input-fields" name="klas">
-        <input type="email" placeholder="Email" class="input-fields" name="email">
-        <input type="password" placeholder="Wachtwoord" class="input-fields" name="wachtwoord">
-        <input type="submit" value="Registreer" class="rounded-orange"/>
-        <p><a class="change_forms-register">Heb je al een account? Log hier in.</a></p>
-      </form>
+      <?php if (empty($_SESSION['user'])) {
+        ?>
+          <form method="post" class="register" action="/register">
+            <input type="text" placeholder="Voornaam" class="input-fields" name="voornaam">
+            <input type="text" placeholder="Achernaam" class="input-fields" name="achternaam">
+            <input type="text" placeholder="School" class="input-fields" name="school">
+            <input type="text" placeholder="Klas" class="input-fields" name="klas">
+            <input type="email" placeholder="Email" class="input-fields" name="email">
+            <input type="password" placeholder="Wachtwoord" class="input-fields" name="wachtwoord">
+            <input type="submit" value="Registreer" class="rounded-orange"/>
+            <p><a class="change_forms-register">Heb je al een account? Log hier in.</a></p>
+          </form>
 
-      <form method="post" class="login hidden" action="/login">
-        <input type="email" placeholder="Email" class="input-fields" name="email">
-        <input type="password" placeholder="Wachtwoord" class="input-fields" name="wachtwoord">
-        <input type="submit" value="Inloggen" class="rounded-orange"/>
-        <p><a class="change_forms-login">Heb je nog geen account?</a></p>
-      </form><br/>
+          <form method="post" class="login hidden" action="/login">
+            <input type="email" placeholder="Email" class="input-fields" name="email">
+            <input type="password" placeholder="Wachtwoord" class="input-fields" name="wachtwoord">
+            <input type="submit" value="Inloggen" class="rounded-orange"/>
+            <p><a class="change_forms-login">Heb je nog geen account?</a></p>
+          </form><br/>
+        <?php
+      } else { ?>
+        <form method="post" class="register" action="/upload">
+          <input type="file" class="input-fields" name="pdf" />
+          <input type="file" class="input-fields" name="foto" />
+          <input type="submit" value="Uploaden" class="rounded-orange"/>
+        </form>
+      <?php } ?>
+
     </section>
 </div>
 
@@ -136,26 +155,6 @@
   </header>
 
   <div class="polaroids">
-    <!-- <article>
-      <div>
-        <img src="assets/img/image.png"/>
-        <h2>Klas <br/> Schoolnaam</h2>
-      </div>
-    </article>
-
-    <article>
-      <div>
-        <img src="assets/img/image.png"/>
-        <h2>Klas <br/> Schoolnaam</h2>
-      </div>
-    </article>
-
-    <article>
-      <div>
-        <img src="assets/img/image.png"/>
-        <h2>Klas <br/> Schoolnaam</h2>
-      </div>
-    </article> -->
 
     <?php
 

@@ -192,6 +192,20 @@ nav ul {
   font-weight: bold;
 }
 
+.alert-fail {
+  background-color: #e74c3c;
+  border: 1px solid #c0392b;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 50px;
+  font-size: 12px;
+}
+
+.alert-fail strong {
+  font-weight: bold;
+}
+
 .title-top {
   font-family: 'moon_light';
   font-size: 3em;
